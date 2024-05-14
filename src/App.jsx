@@ -20,22 +20,24 @@ function App() {
     }
     // TODO: 사용자 리스트 상태를 업데이트 하세요. spread operator 를 사용하고, 추가되는 id는 현재 시간을 밀리초 단위로 반환하는 Date.now() 를 사용하세요.
 
-    setUsers([...users, newUser]);
-     setNewUser("");
-
     const newUser = {
       id: Date.now(),
       name: name,
       age: age,
     };
+
+    setUsers([...users, newUser]);
+    setName('');
+    setAge('');
+
+    
   };
 
   const removeUser = (id) => {
-    setItems(
-      items.filter(function (el) {
-        return el !== id;
-      })
-    )
+    // TODO: filter 메소드를 사용하여 사용자 삭제 로직을 구현해보세요.
+    const updatedUsers = users.filter(user => user.id !== id);
+    setUsers(updatedUsers);
+
   };
 
   return (
